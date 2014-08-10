@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>SQS DEMO</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+html,body {
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#wrapper{
+    width: 900px;
+    margin: auto;
+}
+
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>SQS DEMO</h1>
+        </header>
+        <div id="container">
+            <article>
+                <!-- Queueの作成 -->
+                <section>
+                    <p>新規Queue作成</p>
+                    <form role="form" method="post" action="./create_queue_done.php">
+                        <div class="form-group">
+                            <label>Queue Name : </label>
+                            <input type="text" name="name" class="span3" placeholder="New Queue Name">
+                        </div>
+                        <button type="submit" class="btn btn-default">新規作成</button>
+                    </form>
+                </section>
+
+                <!-- Messageの投入 -->
+                <section>
+                    <p>Message登録</p>
+                    <form role="form" method="post" action="./send_message_done.php">
+                        <div class="form-group">
+                            <label>Message1 : </label>
+                            <input type="text" name="message[]" class="span3" placeholder="Message1">
+                        </div>
+                        <div class="form-group">
+                            <label>Message2 : </label>
+                            <input type="text" name="message[]" class="span3" placeholder="Message2">
+                        </div>
+                        <div class="form-group">
+                            <label>Message3 : </label>
+                            <input type="text" name="message[]" class="span3" placeholder="Message3">
+                        </div>
+
+                        <div class="form-group">
+                            <label>QueueURL : </label>
+                            <input type="text" name="url" class="span3" placeholder="URL">
+                        </div>
+
+                        <button type="submit" class="btn btn-default">登録</button>
+                    </form>
+                </section>
+
+                <!-- Messageの取得 & 削除 -->
+                <section>
+                    <p>Messageの取得</p>
+                    <form role="form" method="get" action="./pop_message_done.php">
+                        <button type="submit" class="btn btn-default">取得</button>
+                    </form>
+                </section>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
